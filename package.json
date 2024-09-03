@@ -7,6 +7,7 @@
       "dev": "next dev",
       "build": "next build",
       "start": "next start",
+      "export": "next export",
       "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
       "lint:style": "npx stylelint '**/*.{ts,tsx}'",
       "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""

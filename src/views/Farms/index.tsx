@@ -355,7 +355,7 @@ const Farms = () => {
                 <Loading />
               </Flex>
             )}
-            {/* {poolLength && <div ref={observerRef} />} */}
+            {poolLength && <div ref={observerRef} />}
           </div>
         </FarmsContext.Provider>
       )}
