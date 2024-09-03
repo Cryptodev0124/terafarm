@@ -4,7 +4,7 @@ import { USDC, USDT, WBTC_ARB, arbitrumTokens, DAI_ARB, GTOKEN} from 'libraries/
 import { ChainMap, ChainTokenList } from './types'
 
 export const ROUTER_ADDRESS: ChainMap<string> = {
-  [ChainId.SEPOLIA]: '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24',
+  [ChainId.SEPOLIA]: '0xC532a74256D3Db42D0Bf7a0400fEFDbad7694008',
 }
 
 // used for display in the default list when adding liquidity

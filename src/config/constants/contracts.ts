@@ -2,24 +2,24 @@ import { ChainId } from 'config/chains'
 
 export default {
   masterChef: {
-    [ChainId.SEPOLIA]: '0xAd55EDBeB57fDD66DB9789FE801E5dE8BB55149E',
+    [ChainId.SEPOLIA]: '0x33AFdE92EB3E984AF3C6c39176a959CA1b5F4bfE',
   },
   multiCall: {
-    [ChainId.SEPOLIA]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    [ChainId.SEPOLIA]: '0xA706813a37cC24F5b7A2013cF1CDd136a1b44f7F',
   },
   multisender: {
-    42161: '0x5cce03fcbe62ac9d77b594201c5ccb7f952069e8'
+    11155111: '0x5cce03fcbe62ac9d77b594201c5ccb7f952069e8'
   },
   locker: {
-    42161: '0x83696B8968a9D0F075Ac23ca37aF76442B66A30e',
+    11155111: '0x83696B8968a9D0F075Ac23ca37aF76442B66A30e',
   },
   launchpadFactory: {
-    42161: '0x7e3F6966D370A0E4370529adC12868eedd515e29',
+    11155111: '0x7e3F6966D370A0E4370529adC12868eedd515e29',
   },
   contribution: {
-    42161: '0x140C951040439276bf96Bb9bc801B83704f09E6c',
+    11155111: '0x140C951040439276bf96Bb9bc801B83704f09E6c',
   },
   smartRouter: {
-    42161: '0xE80EBc294cC42DC1ccc1FF1b5A684593c80a0b01',
+    11155111: '0xE80EBc294cC42DC1ccc1FF1b5A684593c80a0b01',
   }
 } as const satisfies Record<string, Record<number, `0x${string}`>>

@@ -144,9 +144,9 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
                 <AtomBox display={{ xs: "none", md: "block" }}>
                   <TopMenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
                 </AtomBox>
-                <AtomBox display={{ xs: "block", md: "none" }}>
+                {/* <AtomBox display={{ xs: "block", md: "none" }}>
                   <TopMenuItems items={mobileLinks} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
-                </AtomBox>
+                </AtomBox> */}
                 {/* <TopMenuItems items={socialLinks} activeItem={activeItem} activeSubItem={activeSubItem} /> */}
               </Flex>
               <Flex alignItems="center" height="100%">

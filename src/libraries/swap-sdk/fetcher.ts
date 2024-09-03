@@ -1,5 +1,5 @@
 import { createPublicClient, PublicClient, http, getContract, Address } from 'viem'
-import { arbitrum } from 'viem/chains'
+import { arbitrum, sepolia } from 'viem/chains'
 import { ChainId } from 'config/chains'
 import { CurrencyAmount, Token } from 'libraries/swap-sdk-core'
 import invariant from 'tiny-invariant'
@@ -11,7 +11,7 @@ let TOKEN_DECIMALS_CACHE: { [chainId: number]: { [address: string]: number } } =
   [ChainId.SEPOLIA]: {},
 }
 
-const ethClient = createPublicClient({ chain: arbitrum, transport: http() })
+const ethClient = createPublicClient({ chain: sepolia, transport: http() })
 
 const getDefaultClient = (chainId: ChainId): PublicClient => {
   switch (chainId) {

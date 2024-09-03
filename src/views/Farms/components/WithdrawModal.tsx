@@ -69,7 +69,7 @@ const WithdrawModal: React.FC<React.PropsWithChildren<WithdrawModalProps>> = ({
   );
 
   return (
-    <Modal title={isTokenOnly ? 'Unstake DKO' : `Unstake ${tokenName}`} onDismiss={onDismiss}>
+    <Modal title={isTokenOnly ? 'Unstake PYRO' : `Unstake ${tokenName}`} onDismiss={onDismiss}>
       <ModalBody width={["100%", "100%", "100%", "420px"]}>
         <ModalInput
           onSelectMax={handleSelectMax}

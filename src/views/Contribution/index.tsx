@@ -53,8 +53,8 @@ const Locks: React.FC<React.PropsWithChildren> = () => {
             <Text color="primary">${new BigNumber(totalContribution ?? "0").div(10 ** 18).decimalPlaces(0, 1).toNumber().toLocaleString()}</Text>
           </StyledCard>
           <StyledCard>
-            <Text>Total DKO Rewards</Text>
-            <Text color="primary">5,000,000 DKO</Text>
+            <Text>Total PYRO Rewards</Text>
+            <Text color="primary">5,000,000 PYRO</Text>
           </StyledCard>
         </Flex>
 

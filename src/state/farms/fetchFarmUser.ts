@@ -92,7 +92,7 @@ export const fetchFarmUserEarnings = async (account: string, farmsToFetch: Seria
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
-      functionName: 'pendingDKO',
+      functionName: 'pendingPYRO',
       abi: masterChefABI,
       args: [BigInt(farm.pid), userAddress as Address] as const,
     } as const

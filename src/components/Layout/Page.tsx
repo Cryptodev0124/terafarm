@@ -33,17 +33,41 @@ export const PageMeta: React.FC<React.PropsWithChildren> = () => {
   const { description, image } = { ...DEFAULT_META, ...pageMeta }
 
   return (
-    <NextSeo
-      title={pageMeta.title}
-      description={description}
-      openGraph={
-        image
-          ? {
-              images: [{ url: image, alt: pageMeta?.title, type: 'image/jpeg' }],
-            }
-          : undefined
-      }
-    />
+    <>
+      <video
+        autoPlay
+        loop
+        muted
+        id="background-video"
+        style={{
+          backgroundSize: 'cover',
+          backgroundPosition: '50% 50%',
+          position: 'fixed',
+          margin: 'auto',
+          width: '100%',
+          height: '-webkit-fill-available',
+          // right: '-100%',
+          // bottom: '-100%',
+          // top: '-100%',
+          // left: '-100%',
+          objectFit: 'cover',
+          zIndex: '-100',
+        }}
+      >
+        <source src="/images/background.mp4" type="video/mp4" />
+      </video>
+      <NextSeo
+        title={pageMeta.title}
+        description={description}
+        openGraph={
+          image
+            ? {
+                images: [{ url: image, alt: pageMeta?.title, type: 'image/jpeg' }],
+              }
+            : undefined
+        }
+      />
+    </>
   )
 }
 

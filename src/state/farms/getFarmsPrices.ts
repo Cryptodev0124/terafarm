@@ -145,7 +145,7 @@ export default getFarmsPrices
 
 const nativeStableLpMap = {
   [ChainId.SEPOLIA]: {
-    address: '0xd04Bc65744306A5C149414dd3CD5c984D9d3470d',
+    address: '0xF06933523Baa0FB89691073c861216768cD3Df04',
     wNative: 'WETH',
     stable: 'USDT',
   },

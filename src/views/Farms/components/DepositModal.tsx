@@ -236,11 +236,11 @@ const DepositModal: React.FC<React.PropsWithChildren<DepositModalProps>> = ({
             </Button>
           )}
         </ModalActions>
-        <LinkExternal href={addLiquidityUrl} style={{ alignSelf: "center" }}>
+        {/* <LinkExternal href={addLiquidityUrl} style={{ alignSelf: "center" }}>
           <Text fontSize="14px">
             Get {tokenName}
           </Text>
-        </LinkExternal>
+        </LinkExternal> */}
       </ModalBody>
     </Modal>
   );

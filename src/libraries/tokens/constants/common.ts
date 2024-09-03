@@ -3,16 +3,15 @@ import { ERC20Token } from 'libraries/swap-sdk'
 
 export const GTOKEN_ARB = new ERC20Token(
   ChainId.SEPOLIA,
-  '0xcBC8e435993af38950a708Be002e1A6d1280132B',
+  '0xb98E36B9310861d4D586bE06c957AD700B78a861',
   18,
-  'DKO',
-  'Duckstail Token',
-  'https://duckstail.com/',
+  'PYRO',
+  'Pyro Token',
 )
 
 export const USDC_ARB = new ERC20Token(
   ChainId.SEPOLIA,
-  '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
+  '0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238',
   6,
   'USDC',
   'USD Coin',
@@ -20,7 +19,7 @@ export const USDC_ARB = new ERC20Token(
 
 export const USDT_ARB = new ERC20Token(
   ChainId.SEPOLIA,
-  '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
+  '0x7169D38820dfd117C3FA1f22a697dBA58d90BA06',
   6,
   'USDT',
   'Tether USD',
@@ -29,7 +28,7 @@ export const USDT_ARB = new ERC20Token(
 
 export const DAI_ARB = new ERC20Token(
   ChainId.SEPOLIA,
-  '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+  '0x3e622317f8C93f7328350cF0B56d9eD4C620C5d6',
   18,
   'DAI',
   'Dai Stablecoin',

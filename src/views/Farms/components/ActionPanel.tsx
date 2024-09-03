@@ -117,11 +117,11 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
   return (
     <Container expanded={expanded}>
       <InfoContainer>
-        <StakeContainer>
+        {/* <StakeContainer>
           <StyledLinkExternal href={farm.isTokenOnly ? `/swap?outputCurrency=${farm.token.address}` : `/add/${liquidityUrlPathParts}`}>
             <Text fontSize="14px">Get {lpLabel}</Text>
           </StyledLinkExternal>
-        </StakeContainer>
+        </StakeContainer> */}
         <StyledLinkExternal href={explorer}>
           <Text fontSize="14px">View Contract</Text>
         </StyledLinkExternal>

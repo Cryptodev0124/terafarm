@@ -34,7 +34,7 @@ import { FarmsContext } from './context'
 
 const PageHeader = styled(Flex)`
   align-items: center;
-  background: ${({ theme }) => theme.colors.backgroundAlt};
+  background: transparent;
   padding: 12px;
   border-radius: 16px;
 `
@@ -262,45 +262,41 @@ const Farms = () => {
     <>
       {!isConnected ? (
         <>
-          <FarmsContext.Provider value={providerValue}>
-            <Page>
-              <Wrapper>
-                <Flex>
-                  <w3m-button size="sm" />
+          <Wrapper className="firstScreen">
+            <Wrapper style={{ width: '90%', paddingTop: '50px', paddingBottom: '150px', flexDirection: 'column' }}>
+              <Flex>
+                <Text fontSize="32px">Welcome to Terafarm</Text>
+              </Flex>
+              <Flex>
+                <Text>Connect your wallet to Sepolia testnet.</Text>
+              </Flex>
+            </Wrapper>
+            <Wrapper className="disclaimerSection">
+              <Wrapper className='textSection'>
+                <Flex width="100%" alignItems="start">
+                  <Text fontSize="24px">Disclaimer</Text>
+                </Flex>
+                <Flex marginBottom="60px">
+                  <Text>
+                    Terafarm is a decentralized application and platform. It is not registered as a broker, dealer,
+                    investment advisor, or investment company in the US or any other jurisdiction.
+                  </Text>
                 </Flex>
               </Wrapper>
-            </Page>
-          </FarmsContext.Provider>
+              <Flex>
+                <w3m-button size="sm" />
+              </Flex>
+            </Wrapper>
+          </Wrapper>
         </>
       ) : (
         <FarmsContext.Provider value={providerValue}>
-          <Page>
+          <div className='mainPage'>
             <PageHeader>
               <Flex width="100%" justifyContent="space-between" flexDirection={['column', null, 'row']}>
-                <Flex maxWidth="500px" p="24px" flexDirection="column">
-                  <Text fontSize="32px">Terafarm Farms</Text>
-                  <Text my="24px">
-                    Yield farming is a popular method of earning rewards or interest by depositing cryptocurrency into a
-                    pool with other Terafarm users. Terafarm farms are specially designed to incentivize users to
-                    provide liquidity for their favorite token pairs.
-                  </Text>
-                  <Button
-                    as={NextLinkFromReactRouter}
-                    to="https://docs.duckstail.com/products/duckstail-dex/yield-farming"
-                    target="_blink"
-                    variant="secondary"
-                    height="48px"
-                    width="150px"
-                  >
-                    <Flex alignItems="center" justifyContent="space-between" width="100%" p="12px">
-                      <Box>Learn More</Box>
-                      <OpenNewIcon color="primary" />
-                    </Flex>
-                  </Button>
+                <Flex maxWidth="800px" p="24px" flexDirection="column">
+                  <Text fontSize="32px">Select a Pool to view your position</Text>
                 </Flex>
-                <Box maxWidth="320px">
-                  <img src="/images/ducks/Maximize-Earnings.png" alt="farms" />
-                </Box>
               </Flex>
             </PageHeader>
             <ControlContainer>
@@ -359,8 +355,8 @@ const Farms = () => {
                 <Loading />
               </Flex>
             )}
-            {poolLength && <div ref={observerRef} />}
-          </Page>
+            {/* {poolLength && <div ref={observerRef} />} */}
+          </div>
         </FarmsContext.Provider>
       )}
     </>

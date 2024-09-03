@@ -5,12 +5,12 @@ import { ERC20Token } from './entities/token'
 export const ZERO_PERCENT = new Percent('0')
 export const ONE_HUNDRED_PERCENT = new Percent('1')
 
-export const FACTORY_ADDRESS = '0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9'
+export const FACTORY_ADDRESS = '0x7E0987E5b3a30e3f2828572Bb659A548460a3003'
 
 export const FACTORY_ADDRESS_MAP: Record<number, `0x${string}`> = {
   [ChainId.SEPOLIA]: FACTORY_ADDRESS,
 }
-export const INIT_CODE_HASH = '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f'
+export const INIT_CODE_HASH = '0x4156ccc01dad273e6c65c4335c428a2ff4a4b0c95a9a228f6bfed45a069d3fe7'
 
 export const INIT_CODE_HASH_MAP: Record<number, `0x${string}`> = {
   [ChainId.SEPOLIA]: INIT_CODE_HASH,
@@ -19,7 +19,7 @@ export const INIT_CODE_HASH_MAP: Record<number, `0x${string}`> = {
 export const WETH9 = {
   [ChainId.SEPOLIA]: new ERC20Token(
     ChainId.SEPOLIA,
-    '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+    '0xdd13E55209Fd76AfE204dBda4007C227904f0a81',
     18,
     'WETH',
     'Wrapped Ether',

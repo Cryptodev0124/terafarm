@@ -162,9 +162,9 @@ export default function SendCommitButton<SendTransactionReturnType>({
                 Enabling <CircleLoader stroke="white" />
               </AutoRow>
             ) : approvalSubmittedForFee && approvedForFee ? (
-              'DKO Enabled'
+              'PYRO Enabled'
             ) : (
-              "Enable DKO"
+              "Enable PYRO"
             )}
           </CommitButton>}
         </StyledFlex>

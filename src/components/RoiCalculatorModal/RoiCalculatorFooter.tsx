@@ -74,18 +74,18 @@ const RoiCalculatorFooter: React.FC<React.PropsWithChildren<RoiCalculatorFooterP
       {rewardCakePerSecond ? (
         <>
           <Text small>
-            The Multiplier represents the proportion of DKO rewards each farm receives, as a proportion of the DKO produced each second.
+            The Multiplier represents the proportion of PYRO rewards each farm receives, as a proportion of the PYRO produced each second.
           </Text>
           <Text my="24px" small>
             {" "}
-            For example, if a 1x farm received 1 DKO per second, a 40x farm would receive 40 DKO per second.
+            For example, if a 1x farm received 1 PYRO per second, a 40x farm would receive 40 PYRO per second.
           </Text>
           <Text small>This amount is already included in all APR calculations for the farm.</Text>
         </>
       ) : (
         <>
           <Text small>
-            The Multiplier represents the proportion of DKO rewards each farm receives, as a proportion of the DKO produced each block.
+            The Multiplier represents the proportion of PYRO rewards each farm receives, as a proportion of the PYRO produced each block.
           </Text>
         </>
       )}
@@ -122,7 +122,7 @@ const RoiCalculatorFooter: React.FC<React.PropsWithChildren<RoiCalculatorFooterP
                   {displayApr}%
                 </Text>
                 {/* <Text color="textSubtle" small>
-                  *Base APR (DKO yield only)
+                  *Base APR (PYRO yield only)
                 </Text>
                 <Text small textAlign="right">
                   {apr?.toFixed(2)}%
@@ -198,11 +198,11 @@ const RoiCalculatorFooter: React.FC<React.PropsWithChildren<RoiCalculatorFooterP
               </li>
             )}
           </BulletList>
-          {linkHref && (
+          {/* {linkHref && (
             <Flex justifyContent="center" mt="24px">
               <LinkExternal href={linkHref}>{linkLabel}</LinkExternal>
             </Flex>
-          )}
+          )} */}
         </Box>
       )}
     </Footer>
