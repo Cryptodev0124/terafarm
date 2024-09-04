@@ -72,14 +72,101 @@ const GlobalStyle = createGlobalStyle`
       padding-top: 16px;
       padding-bottom: 16px;
       background: #00000070;
+      @media screen and (max-width: 768px) {
+        width: 95%;
+      }
       @media screen and (min-width: 968px) {
         padding: 150px;
       }
-
+      
       @media screen and (min-width: 576px) {
         padding-top: 32px;
         padding-bottom: 32px;
       }
+    }
+
+    .pageBody {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .mainPage1 {
+      width: 70%;
+      margin: auto;
+      border-radius: 24px;
+      min-height: calc(100vh - 64px);
+      padding-top: 16px;
+      padding-bottom: 16px;
+      background: #00000070;
+      @media screen and (max-width: 768px) {
+        width: 95%;
+      }
+      @media screen and (min-width: 968px) {
+        padding: 150px;
+      }
+      
+      @media screen and (min-width: 576px) {
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+    }
+
+    .actionPanel {
+      display: flex; 
+      flex-direction: column; 
+      background: #101418; 
+      width: 90%; 
+      margin-top: 30px; 
+      border-radius: 24px; 
+      padding: 15px;
+    }
+
+    .pairInfo {
+       width: 90%; 
+       padding: 15px;
+       @media screen and (max-width: 768px) {
+        width: 100%;
+        padding: 5px;
+       }
+    }
+
+    .pairImg {
+      width: 10%;
+      @media screen and (max-width: 768px) {
+        width: 12%;
+      }
+    }
+
+    .progress1 {
+       width: 100%; 
+       padding: 15px;
+       @media screen and (max-width: 768px) {
+        padding: 5px;
+       }
+    }
+
+    .progressBar1 {
+       width: 90%; 
+       margin: auto; 
+       height: 10px;
+       @media screen and (max-width: 768px) {
+        width: 100%;
+       }
+    }
+
+    .actions {
+      width: 90%;
+      margin-top: 20px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    .stakeAction {
+      max-width: 500px;
+      width: 100%;
     }
   }
 

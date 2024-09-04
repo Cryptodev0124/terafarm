@@ -9,7 +9,7 @@ interface StyledCardProps extends CardProps {
 }
 
 export const StyledCard = styled.div<StyledCardProps>`
-  background: ${({ theme}) => theme.colors.gradientBubblegum};
+  background: transparent;
   border-radius: ${({ theme }) => theme.radii.card};
   color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"]};
   overflow: hidden;

@@ -27,6 +27,7 @@ const getPathList = (): PathList => {
       '/pool': { title: 'Pool', image: `https://app.duckstail.com/images/web/og/liquidity.jpg` },
       '/find': { title: 'Import Pool' },
       '/earn': { title: 'Earn', image: `https://app.duckstail.com/images/web/og/farms.jpg` },
+      '/earn/[id]': { title: 'Earn', image: `https://app.duckstail.com/images/web/og/farms.jpg` },
       '/info': {
         title: "Overview - Info",
         description: 'View statistics for Pancakeswap exchanges.',
@@ -43,13 +44,6 @@ const getPathList = (): PathList => {
         image: `https://app.duckstail.com/images/web/og/info.jpg`,
       },
       '/multisend': { title: 'Multi-Sender' },
-      '/multisend/history': { title: 'Multi-Send History' },
-      '/bonds': { title: 'Bonds' },
-      '/token': { title: 'Token Creator' },
-      '/lock': { title: 'Token Locker' },
-      '/lock/create': { title: 'Create a Lock' },
-      '/lock/token': { basePath: true, title: 'View Token Lock' },
-      '/lock/record/': { basePath: true, title: 'View Lock Info' },
     },
     defaultTitleSuffix: 'Terafarm',
   }

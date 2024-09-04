@@ -19,7 +19,7 @@ export const USDC_ARB = new ERC20Token(
 
 export const USDT_ARB = new ERC20Token(
   ChainId.SEPOLIA,
-  '0x7169D38820dfd117C3FA1f22a697dBA58d90BA06',
+  '0x8deffc91657a9a51BB0CF5d442e52e1f6701004A',
   6,
   'USDT',
   'Tether USD',

@@ -3,12 +3,13 @@ import styled from "styled-components";
 const Label = styled.div`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.textSubtle};
-  text-align: left;
+  text-align: center;
 `;
 
 const ContentContainer = styled.div`
-  min-height: 24px;
+  min-height: 32px;
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
 `;

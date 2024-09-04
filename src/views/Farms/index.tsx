@@ -272,7 +272,7 @@ const Farms = () => {
               </Flex>
             </Wrapper>
             <Wrapper className="disclaimerSection">
-              <Wrapper className='textSection'>
+              <Wrapper className="textSection">
                 <Flex width="100%" alignItems="start">
                   <Text fontSize="24px">Disclaimer</Text>
                 </Flex>
@@ -291,7 +291,7 @@ const Farms = () => {
         </>
       ) : (
         <FarmsContext.Provider value={providerValue}>
-          <div className='mainPage'>
+          <div className="mainPage">
             <PageHeader>
               <Flex width="100%" justifyContent="space-between" flexDirection={['column', null, 'row']}>
                 <Flex maxWidth="800px" p="24px" flexDirection="column">
@@ -299,63 +299,65 @@ const Farms = () => {
                 </Flex>
               </Flex>
             </PageHeader>
-            <ControlContainer>
-              <ViewControls>
-                <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
-                <Wrapper>
-                  <Flex width="max-content" flexDirection="column">
-                    <ButtonMenu
-                      activeIndex={stakedOnly ? 1 : 0}
-                      scale="sm"
-                      variant="primary"
-                      onItemClick={() => setStakedOnly(!stakedOnly)}
-                    >
-                      <ButtonMenuItem>All</ButtonMenuItem>
-                      <ButtonMenuItem>My</ButtonMenuItem>
-                    </ButtonMenu>
-                  </Flex>
-                </Wrapper>
-              </ViewControls>
-              <FilterContainer>
-                <LabelWrapper>
-                  <Select
-                    options={[
-                      {
-                        label: 'Hot',
-                        value: 'hot',
-                      },
-                      {
-                        label: 'APR',
-                        value: 'apr',
-                      },
-                      {
-                        label: 'Earned',
-                        value: 'earned',
-                      },
-                      {
-                        label: 'Liquidity',
-                        value: 'liquidity',
-                      },
-                    ]}
-                    onOptionChange={handleSortOptionChange}
-                  />
-                </LabelWrapper>
-                <LabelWrapper style={{ marginLeft: 16 }}>
-                  <SearchInput
-                    initialValue={normalizedUrlSearch}
-                    onChange={handleChangeQuery}
-                    placeholder="Search Farms"
-                  />
-                </LabelWrapper>
-              </FilterContainer>
-            </ControlContainer>
-            <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
-            {account && !userDataLoaded && stakedOnly && (
-              <Flex justifyContent="center">
-                <Loading />
-              </Flex>
-            )}
-            {poolLength && <div ref={observerRef} />}
+            <Wrapper className='pageBody'>
+              <ControlContainer>
+                <ViewControls>
+                  <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
+                  <Wrapper>
+                    <Flex width="max-content" flexDirection="column">
+                      <ButtonMenu
+                        activeIndex={stakedOnly ? 1 : 0}
+                        scale="sm"
+                        variant="primary"
+                        onItemClick={() => setStakedOnly(!stakedOnly)}
+                      >
+                        <ButtonMenuItem>All</ButtonMenuItem>
+                        <ButtonMenuItem>My</ButtonMenuItem>
+                      </ButtonMenu>
+                    </Flex>
+                  </Wrapper>
+                </ViewControls>
+                <FilterContainer>
+                  <LabelWrapper>
+                    <Select
+                      options={[
+                        {
+                          label: 'Hot',
+                          value: 'hot',
+                        },
+                        {
+                          label: 'APR',
+                          value: 'apr',
+                        },
+                        {
+                          label: 'Earned',
+                          value: 'earned',
+                        },
+                        {
+                          label: 'Liquidity',
+                          value: 'liquidity',
+                        },
+                      ]}
+                      onOptionChange={handleSortOptionChange}
+                    />
+                  </LabelWrapper>
+                  <LabelWrapper style={{ marginLeft: 16 }}>
+                    <SearchInput
+                      initialValue={normalizedUrlSearch}
+                      onChange={handleChangeQuery}
+                      placeholder="Search Farms"
+                    />
+                  </LabelWrapper>
+                </FilterContainer>
+              </ControlContainer>
+              <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
+              {account && !userDataLoaded && stakedOnly && (
+                <Flex justifyContent="center">
+                  <Loading />
+                </Flex>
+              )}
+              {poolLength && <div ref={observerRef} />}
+            </Wrapper>
           </div>
         </FarmsContext.Provider>
       )}

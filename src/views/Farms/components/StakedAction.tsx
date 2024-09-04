@@ -118,8 +118,8 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
   const cakePrice = useMemo(() => (_cakePrice ? new BigNumber(_cakePrice.toSignificant(6)) : BIG_ZERO), [_cakePrice])
 
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
-    quoteTokenAddress: quoteToken.address,
-    tokenAddress: token.address,
+    quoteTokenAddress: quoteToken?.address,
+    tokenAddress: token?.address,
     chainId,
   })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`

@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import { useMatchBreakpoints } from 'contexts'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
 import { useFarmUser } from 'state/farms/hooks'
-import { 
-  DesktopColumnSchema, 
+import { Button, NextLinkFromReactRouter } from 'components'
+import {
+  DesktopColumnSchema,
   MobileColumnSchema,
   FarmTableEarnedProps,
   FarmTableLiquidityProps,
   FarmTableFarmTokenInfoProps,
   FarmTableFarmNameProps,
-  FarmWithStakedValue
+  FarmWithStakedValue,
 } from '../types'
 
 import Apr, { AprProps } from './Apr'
@@ -51,6 +52,9 @@ const CellInner = styled.div`
   padding-right: 8px;
 
   ${({ theme }) => theme.mediaQueries.xl} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-right: 32px;
   }
 `
@@ -85,6 +89,10 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
     setActionPanelExpanded(!actionPanelExpanded)
   }
 
+  const showDetails = () => {
+    window.location.href = '/actionpanel'
+  }
+
   useEffect(() => {
     setActionPanelExpanded(hasStakedAmount)
   }, [hasStakedAmount])
@@ -110,17 +118,28 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                 return (
                   <td key={key}>
                     <CellInner>
-                      <CellLayout label='APR'>
-                        <Apr
-                          {...props.apr}
-                          hideButton={isSmallerScreen}
-                        />
+                      <CellLayout label="APR">
+                        <Apr {...props.apr} hideButton={isSmallerScreen} />
                       </CellLayout>
                     </CellInner>
                   </td>
                 )
               case 'details':
-                return <td key={key} />
+                return (
+                  <td>
+                    <CellInner>
+                      <CellLayout>
+                        <Button
+                          as={NextLinkFromReactRouter}
+                          to={`/earn/${props.farm.pid}`}
+                          style={{ height: '32px', background: '#242f35', color: 'white', padding: '8px' }}
+                        >
+                          View Details
+                        </Button>
+                      </CellLayout>
+                    </CellInner>
+                  </td>
+                )
               default:
                 return (
                   <td key={key}>
@@ -139,23 +158,31 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
 
     return (
       <>
-        <tr style={{ cursor: 'pointer', width: "100%" }} onClick={toggleActionPanel}>
+        <tr style={{ cursor: 'pointer', width: '100%' }} onClick={toggleActionPanel}>
           <FarmMobileCell colSpan={3}>
             <Farm {...props.farm} />
           </FarmMobileCell>
         </tr>
         <StyledTr onClick={toggleActionPanel}>
-          <EarnedMobileCell width="50%">
-            <CellLayout label='Total Staked'>
+          <EarnedMobileCell width="33%">
+            <CellLayout label="Total Staked">
               <Liquidity {...props.liquidity} />
             </CellLayout>
           </EarnedMobileCell>
-          <AprMobileCell width="50%">
-            <CellLayout label='APR'>
-              <Apr
-                {...props.apr}
-                hideButton
-              />
+          <AprMobileCell width="33%">
+            <CellLayout label="APR">
+              <Apr {...props.apr} hideButton />
+            </CellLayout>
+          </AprMobileCell>
+          <AprMobileCell width="33%">
+            <CellLayout>
+              <Button
+                as={NextLinkFromReactRouter}
+                to={`/earn/${props.farm.pid}`}
+                style={{ height: '32px', background: '#242f35', color: 'white', padding: '8px' }}
+              >
+                View Details
+              </Button>
             </CellLayout>
           </AprMobileCell>
         </StyledTr>
@@ -166,13 +193,13 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
   return (
     <>
       {handleRenderRow()}
-      {shouldRenderChild && (
+      {/* {shouldRenderChild && (
         <tr>
           <td colSpan={7} key={`farm-actionpanel-${details.pid}`}>
             <ActionPanel {...props} expanded={actionPanelExpanded} />
           </td>
         </tr>
-      )}
+      )} */}
     </>
   )
 }

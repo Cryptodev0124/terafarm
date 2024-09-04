@@ -23,6 +23,7 @@ const StyledPage = styled(Container)`
 
 export const PageMeta: React.FC<React.PropsWithChildren> = () => {
   const { pathname } = useRouter()
+  console.log(pathname)
 
   const pageMeta = getCustomMeta(pathname)
 
