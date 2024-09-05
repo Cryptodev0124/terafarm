@@ -43,6 +43,16 @@ const PageHeader = styled(Flex)`
   margin-top: 70px;
 `
 
+const StyledBox = styled(Box)`
+  width: 100%;
+  margin: auto;  
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background: #101418; 
+  padding: 20px;
+  border-radius: 16px;
+`
+
 const StyledFlex = styled(Flex)`
 	display: flex; 
 	flex-direction: column; 
@@ -237,13 +247,13 @@ const Dashboard = () => {
   
   const PYRObalance = useTokenBalance(account, arbitrumTokens.gtoken)?.toFixed(0)
 
-  const PYROsupply = farmsLP?.[0].lpTotalSupply?.toString()
+  const PYROsupply = farmsLP?.[0]?.lpTotalSupply?.toString()
 
   const VolumesStaked = chosenFarms.map((farm) => {
     return (farm?.userData?.stakedBalance ?? BIG_ZERO).times(farm?.lpTokenPrice ?? BIG_ZERO).toNumber()
   })
 
-  const TVLStaked = (VolumesStaked.reduce((p, c) => p + c)/1e18).toFixed(0)
+  const TVLStaked = (VolumesStaked.reduce((p, c) => p + c, 0)/1e18).toFixed(0)
 
   const chosenFarmsMemoized = useMemo(() => {
     const sortFarms = (farms: FarmWithStakedValue[]): FarmWithStakedValue[] => {
@@ -340,23 +350,19 @@ const Dashboard = () => {
         </>
       ) : (
         <FarmsContext.Provider value={providerValue}>
-            <PageHeader>
-              <Flex width="90%" margin='auto' justifyContent="space-between" flexDirection={['column', 'column', 'column', 'column', 'column', 'row']}>
-                <Flex maxWidth="800px" flexDirection={["column", null, "row"]}>
-                  <Text fontSize="24px" color='black'>Total PYRO: </Text>
-                  <Text fontSize='24px' ml={[null, null, "5px"]} color='#efc863'>{PYROsupply}</Text>
-                </Flex>
-                <Flex maxWidth="800px" flexDirection={["row"]}>
-                  <Text fontSize="24px" color='black'>Your PYRO: </Text>
-                  <Text fontSize='24px' ml='5px' color='#efc863'> {PYRObalance}</Text>
-                </Flex>
-                <Flex maxWidth="800px" flexDirection={["row"]}>
-                  <Text fontSize="24px" color='black'>You staked: </Text>
-                  <Text fontSize='24px' ml='5px' color='#efc863'>${TVLStaked}</Text>
-                </Flex>
-              </Flex>
-            </PageHeader>
             <Wrapper className='pageBody'>
+              <StyledBox>
+                <Flex flexDirection={["column", null, "row"]} justifyContent="space-evenly">
+                <Flex flexDirection={["row", null, "column"]} justifyContent="center" alignItems="center">
+                  <Text fontSize="18px" color='text'>Your PYRO</Text>
+                  <Text fontSize='18px' ml={['10px', null, "0"]} color='#efc863'> {Number(PYRObalance).toLocaleString("en-US")} / {Number(PYROsupply).toPrecision(2)}</Text>
+                </Flex>
+                <Flex flexDirection={["row", null, "column"]} justifyContent="center" alignItems="center">
+                  <Text fontSize="18px" color='text'>TVL staked</Text>
+                  <Text fontSize='18px' ml={['10px', null, "0"]} color='#efc863'>${Number(TVLStaked).toLocaleString("en-US")}</Text>
+                </Flex>
+                </Flex>
+              </StyledBox>
               {/* <ControlContainer>
                 <ViewControls>
                   <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
@@ -407,6 +413,9 @@ const Dashboard = () => {
                   </LabelWrapper>
                 </FilterContainer>
               </ControlContainer> */}
+              <Flex width="100%" justifyContent="left">
+                <Text fontSize="20px" bold textAlign="left" color="background">Farms you staked</Text>
+              </Flex>
               <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
               {account && !userDataLoaded && stakedOnly && (
                 <Flex justifyContent="center">

@@ -103,6 +103,7 @@ const config: (chainId?: number) => ConfigMenuItemsType[] = (chainId) =>
       fillIcon: ChartIcon,
       href: 'https://app.uniswap.org/add/v2',
       showItemsOnMobile: false,
+      type: DropdownMenuItemType.EXTERNAL_LINK
     },
     // {
     //   label: 'More',
