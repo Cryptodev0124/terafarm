@@ -22,7 +22,6 @@ import Liquidity from './Liquidity'
 import Earned from './Earned'
 import Name from './Name'
 import TokenInfo from './TokenInfo'
-import ActionPanel from './ActionPanel'
 
 export interface RowProps {
   apr: AprProps
@@ -116,14 +115,13 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
             switch (key) {
               case 'apr':
                 return (
-                  // <td key={key}>
-                  //   <CellInner>
-                  //     <CellLayout label="APR">
-                  //       <Apr {...props.apr} hideButton={isSmallerScreen} />
-                  //     </CellLayout>
-                  //   </CellInner>
-                  // </td>
-                  <></>
+                  <td key={key}>
+                    <CellInner>
+                      <CellLayout label="APR">
+                        <Apr {...props.apr} hideButton={isSmallerScreen} />
+                      </CellLayout>
+                    </CellInner>
+                  </td>
                 )
               case 'details':
                 return (

@@ -41,10 +41,8 @@ const GlobalStyle = createGlobalStyle`
       top: 50%; 
       left: 50%; 
       transform: translate(-50%, 50%); 
-      height: 40vh;
       @media screen and (max-width: 768px) {
         margin-left: 0;
-        height: 47vh;
       }
     }
 
@@ -115,16 +113,6 @@ const GlobalStyle = createGlobalStyle`
       }
     }
 
-    .actionPanel {
-      display: flex; 
-      flex-direction: column; 
-      background: #101418; 
-      width: 90%; 
-      margin-top: 30px; 
-      border-radius: 24px; 
-      padding: 15px;
-    }
-
     .pairInfo {
        width: 90%; 
        padding: 15px;
@@ -150,11 +138,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .progressBar1 {
-       width: 90%; 
-       margin: auto; 
-       height: 10px;
+       width: 80%; 
+       height: 20px;
        @media screen and (max-width: 768px) {
-        width: 100%;
+        width: 80%;
        }
     }
 

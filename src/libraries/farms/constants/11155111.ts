@@ -11,18 +11,18 @@ const farms: SerializedFarmConfig[] = [
     isTokenOnly: true,
   },
   {
-    pid: 1,
+    pid: 2,
     lpSymbol: 'WETH-USDT LP',
     lpAddress: '0xe2714a24c574eDa7a8Bb58CF0c3dF0e8106c5472',
     quoteToken: arbitrumTokens.weth,
     token: arbitrumTokens.usdt,
   },
   {
-    pid: 2,
+    pid: 3,
     lpSymbol: 'PYRO-USDT LP',
     lpAddress: '0x884c715dc44EbC6AA9D4A8A876B15E8e5cBD2E3f',
-    quoteToken: arbitrumTokens.gtoken,
-    token: arbitrumTokens.usdt,
+    quoteToken: arbitrumTokens.usdt,
+    token: arbitrumTokens.gtoken,
   },
 ].map((p) => ({ ...p, lpAddress: p.lpAddress as `0x${string}`, token: p.token.serialize, quoteToken: p.quoteToken.serialize }))
 

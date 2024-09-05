@@ -1,4 +1,4 @@
-import { Button, Card, Flex, NextLinkFromReactRouter, Text } from 'components'
+import { Box, Button, Card, Flex, NextLinkFromReactRouter, Text } from 'components'
 import { AppHeader } from 'components/App'
 import Page from 'components/Layout/Page'
 import { useFarms, usePollFarmsWithUserData } from 'state/farms/hooks'
@@ -12,6 +12,7 @@ import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { bigint, number } from 'zod'
 import { FarmWithStakedValue } from 'libraries/farms'
+import { formatLpBalance } from 'utils/formatBalance'
 import { FarmTableLiquidityProps } from './types'
 import { AprProps } from './components/Apr'
 import { HarvestAction, HarvestActionContainer } from './components/HarvestAction'
@@ -24,6 +25,15 @@ export const StyledAppBody = styled(Card)`
   width: 100%;
   padding: 16px 20px 28px 20px;
   z-index: 1;
+`
+
+const StyledBox = styled(Box)`
+	display: flex; 
+	flex-direction: column; 
+	background: #101418; 
+	margin-top: 30px; 
+	border-radius: 16px; 
+	padding: 20px;
 `
 
 export interface ActionPanelProps {
@@ -65,69 +75,56 @@ const Farm = ({ pid }: { pid: number }) => {
   const farm = farmsLP.filter((f) => f.pid === pid)[0]
 
   const lpTotalSupply = farm?.lpTotalSupply?.toNumber() ?? 0
-  const lpStaked = farm?.lpTotalInQuoteToken?.toNumber() ?? 0
+  const lpStaked = (farm?.userData?.stakedBalance ?? BIG_ZERO).div(10 **18).toNumber() ?? 0
   const lpPrice = farm?.lpTokenPrice?.toNumber() ?? 0
-  const percentage = (lpStaked * 1e18) / lpTotalSupply
-
-  console.log("farm", farm)
+  const percentage = (lpStaked * 1e18) / lpTotalSupply * 100
 
   return (
-    <div className="mainPage1">
       <StyledAppBody>
-        <Wrapper>
-          <AppHeader title="Return Positions" backTo="/earn" noConfig />
-        </Wrapper>
-      </StyledAppBody>
-      <Wrapper style={{ display: 'flex', flexDirection: 'column' }}>
-        {/* <Wrapper>
-          <Flex>
-            <img src="/images/refui.png" alt="" width="90%" style={{ margin: 'auto' }} />
+        <AppHeader title="Return Positions" backTo="/earn" noConfig />
+        <StyledBox>
+          <Flex justifyContent="space-between" width="100%">
+						<Flex alignItems="center">
+							<Flex width="40px" mr="12px">
+								{farm?.isTokenOnly ? (
+									<TokenImage width={36} height={36} token={farm?.token} mr="2px" />
+								) : (
+									<TokenPairImage
+										width={40}
+										height={40}
+										variant="inverted"
+										primaryToken={farm?.token}
+										secondaryToken={farm?.quoteToken}
+									/>
+								)}
+							</Flex>
+							<Box>
+								<Text>{farm?.lpSymbol}</Text>
+								<Text>{lpStaked >= 1 ? lpStaked.toLocaleString() : lpStaked.toFixed(8)} staked</Text>
+							</Box>
+						</Flex>
+            <Text>${(lpPrice * lpStaked).toLocaleString("en-US")}</Text>
           </Flex>
-        </Wrapper> */}
-        <Wrapper className="actionPanel">
-          <Wrapper className="pairInfo">
-            <Flex style={{ width: '100%' }}>
-              <Flex className="pairImg">
-                {farm?.isTokenOnly ? (
-                  <TokenImage width={36} height={36} token={farm?.token} mr="2px" />
-                ) : (
-                  <TokenPairImage
-                    width={40}
-                    height={40}
-                    variant="inverted"
-                    primaryToken={farm?.token}
-                    secondaryToken={farm?.quoteToken}
-                  />
-                )}
-              </Flex>
-              <Flex style={{ display: 'flex', flexDirection: 'column' }}>
-                <Flex color="white" paddingBottom="5px">
-                  {farm?.lpSymbol}
-                </Flex>
-                <Flex color="#fffff2">{lpStaked} LP</Flex>
-              </Flex>
-            </Flex>
-            <Flex>
-              <Text>${lpPrice * lpStaked}</Text>
-            </Flex>
-          </Wrapper>
-          <Wrapper className="progress1">
-            <Flex style={{ width: '100%' }}>
-              <ProgressBar className="progressBar1" now={percentage} label={`${percentage}%`} />
-            </Flex>
-          </Wrapper>
-          <Wrapper className="actions">
-            <Flex className="stakeAction">
-              <ActionContainer>
-                <StakedContainer {...farm}>{(props) => <StakedAction {...props} />}</StakedContainer>
-              </ActionContainer>
-            </Flex>
-            <Flex className="stakeAction">
-              <ActionContainer>
-                <HarvestActionContainer {...farm}>{(props) => <HarvestAction {...props} userDataReady={Boolean(farm?.userData)} />}</HarvestActionContainer>
-              </ActionContainer>
-            </Flex>
-          </Wrapper>
+          <Flex justifyContent="cener" mt="20px" alignItems="center">
+						<Box width="100%">
+							<ProgressBar
+								now={percentage} 
+							/>
+						</Box>
+							<Text color="text" ml="12px">{percentage.toFixed(0)}%</Text>
+          </Flex>
+          <Flex width="100%" flexDirection={["column", null, "row"]} mt="20px">
+						<Box ml={["0", null, "-12px"]} width="100%">
+							<ActionContainer>
+								<StakedContainer {...farm}>{(props) => <StakedAction {...props} />}</StakedContainer>
+							</ActionContainer>
+						</Box>
+						<Box width="100%">
+							<ActionContainer>
+								<HarvestActionContainer {...farm}>{(props) => <HarvestAction {...props} userDataReady={Boolean(farm?.userData)} />}</HarvestActionContainer>
+							</ActionContainer>
+						</Box>
+          </Flex>
           <Wrapper className="liquiditySec">
             <Button
               as={NextLinkFromReactRouter}
@@ -140,9 +137,8 @@ const Farm = ({ pid }: { pid: number }) => {
               {farm?.isTokenOnly ? 'Get PYRO' : 'Add liqudity'}
             </Button>
           </Wrapper>
-        </Wrapper>
-      </Wrapper>
-    </div>
+        </StyledBox>
+			</StyledAppBody>
   )
 }
 

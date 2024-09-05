@@ -39,6 +39,17 @@ const PageHeader = styled(Flex)`
   border-radius: 16px;
 `
 
+const StyledFlex = styled(Flex)`
+	display: flex; 
+	flex-direction: column; 
+	background: #101418; 
+	border-radius: 16px; 
+	padding: 20px;
+  max-width: 500px;
+  min-height: 600px;
+  margin-top: 80px;
+`
+
 const ControlContainer = styled.div`
   display: flex;
   width: 100%;
@@ -262,7 +273,29 @@ const Farms = () => {
     <>
       {!isConnected ? (
         <>
-          <Wrapper className="firstScreen">
+        <StyledFlex justifyContent="space-between" margin="auto" width="90%">
+          <Box>
+            <Text fontSize="28px" textAlign="center" mb="12px">Welcome to Terafarm</Text>
+            <Text textAlign="center">Connect your wallet to Sepolia testnet.</Text>
+          </Box>
+          <Flex justifyContent="center">
+            <img src="/images/logo1-2.png" width="200px" alt="logo" />
+          </Flex>
+          <Box>
+            <Text fontSize="24px" textAlign="center">Disclaimer</Text>
+            <Flex maxWidth="500px" margin="auto">
+              <Text textAlign="center">
+                Terafarm is a decentralized application and platform. It is not registered as a broker, dealer,
+                investment advisor, or investment company in the US or any other jurisdiction.
+              </Text>
+            </Flex>
+            <Flex justifyContent="center" mt="20px">
+              <w3m-button size="sm" />
+            </Flex>
+          </Box>
+
+        </StyledFlex>
+          {/* <Wrapper className="firstScreen">
             <Wrapper style={{ width: '90%', paddingTop: '50px', paddingBottom: '150px', flexDirection: 'column' }}>
               <Flex>
                 <Text fontSize="32px">Welcome to Terafarm</Text>
@@ -287,11 +320,10 @@ const Farms = () => {
                 <w3m-button size="sm" />
               </Flex>
             </Wrapper>
-          </Wrapper>
+          </Wrapper> */}
         </>
       ) : (
         <FarmsContext.Provider value={providerValue}>
-          <div className="mainPage">
             <PageHeader>
               <Flex width="100%" justifyContent="space-between" flexDirection={['column', null, 'row']}>
                 <Flex maxWidth="800px" p="24px" flexDirection="column">
@@ -358,7 +390,6 @@ const Farms = () => {
               )}
               {poolLength && <div ref={observerRef} />}
             </Wrapper>
-          </div>
         </FarmsContext.Provider>
       )}
     </>

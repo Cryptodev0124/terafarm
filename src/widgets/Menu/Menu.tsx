@@ -151,9 +151,9 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
                 {/* <TopMenuItems items={socialLinks} activeItem={activeItem} activeSubItem={activeSubItem} /> */}
               </Flex>
               <Flex alignItems="center" height="100%">
-                <AtomBox mr="20px" display={{ xs: "block", lg: "block" }}>
+                {/* <AtomBox mr="20px" display={{ xs: "block", lg: "block" }}>
                   <CakePrice chainId={chainId} showSkeleton={false} cakePriceUsd={cakePriceUsd} />
-                </AtomBox>
+                </AtomBox> */}
                 {rightSide}
               </Flex>
             </StyledNav>
