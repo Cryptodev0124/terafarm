@@ -52,6 +52,7 @@ export default function useBUSDPrice(currency?: Currency): Price<Currency, Curre
       busdPair.reserve0.greaterThan('0') &&
       busdPair.reserve1.greaterThan('0')
 
+
     // handle wbnb/bnb
     if (wrapped.equals(wnative)) {
       if (isBUSDPairExist) {

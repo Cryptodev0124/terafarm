@@ -300,7 +300,7 @@ const Farms = () => {
               </Flex>
             </PageHeader>
             <Wrapper className='pageBody'>
-              <ControlContainer>
+              {/* <ControlContainer>
                 <ViewControls>
                   <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
                   <Wrapper>
@@ -349,7 +349,7 @@ const Farms = () => {
                     />
                   </LabelWrapper>
                 </FilterContainer>
-              </ControlContainer>
+              </ControlContainer> */}
               <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
               {account && !userDataLoaded && stakedOnly && (
                 <Flex justifyContent="center">

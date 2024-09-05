@@ -23,7 +23,6 @@ const StyledPage = styled(Container)`
 
 export const PageMeta: React.FC<React.PropsWithChildren> = () => {
   const { pathname } = useRouter()
-  console.log(pathname)
 
   const pageMeta = getCustomMeta(pathname)
 
@@ -35,7 +34,7 @@ export const PageMeta: React.FC<React.PropsWithChildren> = () => {
 
   return (
     <>
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -56,7 +55,12 @@ export const PageMeta: React.FC<React.PropsWithChildren> = () => {
         }}
       >
         <source src="/images/background.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+      <div>
+        <div className="wave" />
+        <div className="wave" />
+        <div className="wave" />
+      </div>
       <NextSeo
         title={pageMeta.title}
         description={description}

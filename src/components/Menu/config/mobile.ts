@@ -1,7 +1,12 @@
 import { DropdownMenuItemType, MenuItemsType } from 'widgets/Menu'
 import { DropdownMenuItems } from 'components/DropdownMenu'
 import {
-  MoreIcon
+  ChartIcon,
+  FarmIcon,
+  HomeIcon,
+  MoreIcon,
+  PrizeIcon,
+  SwapIcon
 } from '../../Svg'
 
 export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
@@ -27,65 +32,93 @@ const config: (
 ) => ConfigMenuItemsType[] = (chainId) =>
   [
     {
-      label: '',
-      icon: MoreIcon,
-      fillIcon: MoreIcon,
+      label: 'Dashboard',
+      icon: HomeIcon,
+      fillIcon: HomeIcon,
       href: '',
-      showItemsOnMobile: true,
+      showItemsOnMobile: false,
       items: [
-        {
-          label: 'Swap',
-          href: '/swap',
-        },
-        {
-          label: 'Pool',
-          href: '/pool',
-        },
-        {
-          label: 'Farms',
-          href: '/earn',
-        },
+        // {
+        //   label: 'Swap',
+        //   href: '/swap',
+        // },
+        // {
+        //   label: 'Pool',
+        //   href: '/pool',
+        // },
+        // {
+        //   label: 'Farms',
+        //   href: '/earn',
+        // },
         // {
         //   label: 'Bonds',
         //   href: '/bonds',
         // },
-        {
-          label: 'Sales',
-          href: '/sales',
-        },
-        {
-          label: 'Token Creator',
-          href: '/token',
-        },
-        {
-          label: 'Token Multi-sender',
-          href: '/multisend',
-        },
-        {
-          label: 'Token Locker',
-          href: '/lock',
-        },
-        {
-          label: 'Twitter',
-          href: 'https://twitter.com/',
-          type: DropdownMenuItemType.EXTERNAL_LINK
-        },
-        {
-          label: 'Telegram',
-          href: 'https://telegram.me/',
-          type: DropdownMenuItemType.EXTERNAL_LINK
-        },
-        {
-          label: 'Discord',
-          href: 'https://discord.com/',
-          type: DropdownMenuItemType.EXTERNAL_LINK
-        },
-        {
-          label: 'Docs',
-          href: 'https://docs.duckstail.com/',
-          type: DropdownMenuItemType.EXTERNAL_LINK
-        },
+        // {
+        //   label: 'Sales',
+        //   href: '/sales',
+        // },
+        // {
+        //   label: 'Token Creator',
+        //   href: '/token',
+        // },
+        // {
+        //   label: 'Token Multi-sender',
+        //   href: '/multisend',
+        // },
+        // {
+        //   label: 'Token Locker',
+        //   href: '/lock',
+        // },
+        // {
+        //   label: 'Twitter',
+        //   href: 'https://twitter.com/',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK
+        // },
+        // {
+        //   label: 'Telegram',
+        //   href: 'https://telegram.me/',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK
+        // },
+        // {
+        //   label: 'Discord',
+        //   href: 'https://discord.com/',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK
+        // },
+        // {
+        //   label: 'Docs',
+        //   href: 'https://docs.duckstail.com/',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK
+        // },
       ].map((item) => addMenuItemSupported(item, chainId)),
+    },
+    {
+      label: 'Liquidity',
+      icon: ChartIcon,
+      fillIcon: ChartIcon,
+      href: '',
+      showItemsOnMobile: false,
+    },
+    {
+      label: 'Stake',
+      icon: PrizeIcon,
+      fillIcon: PrizeIcon,
+      href: '',
+      showItemsOnMobile: false,
+    },
+    {
+      label: 'Farm',
+      icon: FarmIcon,
+      fillIcon: FarmIcon,
+      href: '',
+      showItemsOnMobile: false,
+    },
+    {
+      label: 'More',
+      icon: MoreIcon,
+      fillIcon: MoreIcon,
+      href: '',
+      showItemsOnMobile: false,
     },
   ].map((item) => addMenuItemSupported(item, chainId))
 

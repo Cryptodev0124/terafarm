@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useMatchBreakpoints } from 'contexts'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
 import { useFarmUser } from 'state/farms/hooks'
-import { Button, NextLinkFromReactRouter } from 'components'
+import { Button, NextLinkFromReactRouter, Text } from 'components'
 import {
   DesktopColumnSchema,
   MobileColumnSchema,
@@ -76,7 +76,7 @@ const AprMobileCell = styled.td`
 `
 
 const FarmMobileCell = styled.td`
-  padding-top: 24px;
+  // padding-top: 24px;
 `
 
 const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>> = (props) => {
@@ -106,7 +106,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
   const handleRenderRow = () => {
     if (!isMobile) {
       return (
-        <StyledTr onClick={toggleActionPanel}>
+        <StyledTr>
           {Object.keys(props).map((key) => {
             const columnIndex = columnNames.indexOf(key)
             if (columnIndex === -1) {
@@ -116,13 +116,14 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
             switch (key) {
               case 'apr':
                 return (
-                  <td key={key}>
-                    <CellInner>
-                      <CellLayout label="APR">
-                        <Apr {...props.apr} hideButton={isSmallerScreen} />
-                      </CellLayout>
-                    </CellInner>
-                  </td>
+                  // <td key={key}>
+                  //   <CellInner>
+                  //     <CellLayout label="APR">
+                  //       <Apr {...props.apr} hideButton={isSmallerScreen} />
+                  //     </CellLayout>
+                  //   </CellInner>
+                  // </td>
+                  <></>
                 )
               case 'details':
                 return (
@@ -133,8 +134,9 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                           as={NextLinkFromReactRouter}
                           to={`/earn/${props.farm.pid}`}
                           style={{ height: '32px', background: '#242f35', color: 'white', padding: '8px' }}
+                          mt="4px"
                         >
-                          View Details
+                          <Text fontSize="12px">View Details</Text>
                         </Button>
                       </CellLayout>
                     </CellInner>
@@ -158,13 +160,24 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
 
     return (
       <>
-        <tr style={{ cursor: 'pointer', width: '100%' }} onClick={toggleActionPanel}>
+        <tr style={{ cursor: 'pointer', width: '100%' }}>
           <FarmMobileCell colSpan={3}>
             <Farm {...props.farm} />
           </FarmMobileCell>
+          <AprMobileCell>
+            <CellLayout>
+              <Button
+                as={NextLinkFromReactRouter}
+                to={`/earn/${props.farm.pid}`}
+                style={{ height: '32px', background: '#242f35', color: 'white', padding: '8px' }}
+              >
+                <Text fontSize="12px">View Details</Text>
+              </Button>
+            </CellLayout>
+          </AprMobileCell>
         </tr>
-        <StyledTr onClick={toggleActionPanel}>
-          <EarnedMobileCell width="33%">
+        {/* <StyledTr onClick={toggleActionPanel}> */}
+          {/* <EarnedMobileCell width="33%">
             <CellLayout label="Total Staked">
               <Liquidity {...props.liquidity} />
             </CellLayout>
@@ -173,19 +186,8 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
             <CellLayout label="APR">
               <Apr {...props.apr} hideButton />
             </CellLayout>
-          </AprMobileCell>
-          <AprMobileCell width="33%">
-            <CellLayout>
-              <Button
-                as={NextLinkFromReactRouter}
-                to={`/earn/${props.farm.pid}`}
-                style={{ height: '32px', background: '#242f35', color: 'white', padding: '8px' }}
-              >
-                View Details
-              </Button>
-            </CellLayout>
-          </AprMobileCell>
-        </StyledTr>
+          </AprMobileCell> */}
+        {/* </StyledTr> */}
       </>
     )
   }

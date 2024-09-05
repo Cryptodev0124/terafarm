@@ -28,14 +28,14 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
       {isTokenOnly ?
         <Flex width="100%" alignItems="center">
           <TokenImage width={36} height={36} token={token} mr="2px" />
-          <ChevronRightIcon />
-          <TokenImage width={36} height={36} token={GTOKEN[token.chainId]} />
+          {/* <ChevronRightIcon />
+          <TokenImage width={36} height={36} token={GTOKEN[token.chainId]} /> */}
         </Flex>
         :
         <Flex width="100%" alignItems="center">
           <TokenPairImage width={40} height={40} variant="inverted" primaryToken={token} secondaryToken={quoteToken} />
-          <ChevronRightIcon />
-          <TokenImage width={36} height={36} token={GTOKEN[token.chainId]} />
+          {/* <ChevronRightIcon />
+          <TokenImage width={36} height={36} token={GTOKEN[token.chainId]} /> */}
         </Flex>
       }
     </FarmTokenInfo>

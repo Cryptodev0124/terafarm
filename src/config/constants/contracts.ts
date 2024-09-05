@@ -2,7 +2,7 @@ import { ChainId } from 'config/chains'
 
 export default {
   masterChef: {
-    [ChainId.SEPOLIA]: '0x6Bcf4D93af17e3F949D8db7fB2f08Aa9dE283554',
+    [ChainId.SEPOLIA]: '0x38794669fd369942183B6f3a32A157aC09C7eCAC',
   },
   multiCall: {
     [ChainId.SEPOLIA]: '0xA706813a37cC24F5b7A2013cF1CDd136a1b44f7F',

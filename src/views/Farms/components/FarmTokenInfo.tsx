@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import { Flex } from "components";
-import { Text } from "components/Text";
-import { Skeleton } from "components/Skeleton";
-import { FarmTableFarmTokenInfoProps } from "../types";
+import styled from 'styled-components'
+import { Flex } from 'components'
+import { Text } from 'components/Text'
+import { Skeleton } from 'components/Skeleton'
+import { isMobile } from 'react-device-detect'
+import { FarmTableFarmTokenInfoProps } from '../types'
 
 const Container = styled.div`
   padding-left: 16px;
@@ -11,12 +12,12 @@ const Container = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 32px;
   }
-`;
+`
 
 const TokenWrapper = styled.div`
   padding-right: 8px;
-  width: 120px;
-`;
+  width: 80px;
+`
 
 const FarmTokenInfo: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenInfoProps>> = ({
   label,
@@ -32,7 +33,7 @@ const FarmTokenInfo: React.FunctionComponent<React.PropsWithChildren<FarmTableFa
           <Skeleton width={60} height={24} />
         </div>
       </Container>
-    );
+    )
   }
 
   const pairContainer = (
@@ -42,9 +43,9 @@ const FarmTokenInfo: React.FunctionComponent<React.PropsWithChildren<FarmTableFa
         <Text>{label}</Text>
       </Flex>
     </Container>
-  );
+  )
 
   return pairContainer
-};
+}
 
-export default FarmTokenInfo;
+export default FarmTokenInfo

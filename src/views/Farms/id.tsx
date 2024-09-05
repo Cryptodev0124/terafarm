@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 `
 
 const ActionContainer = styled.div`
-	width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 
@@ -66,28 +66,28 @@ const Farm = ({ pid }: { pid: number }) => {
 
   const lpTotalSupply = farm?.lpTotalSupply?.toNumber() ?? 0
   const lpStaked = farm?.lpTotalInQuoteToken?.toNumber() ?? 0
-	const lpPrice = farm?.lpTokenPrice?.toNumber() ?? 0
+  const lpPrice = farm?.lpTokenPrice?.toNumber() ?? 0
   const percentage = (lpStaked * 1e18) / lpTotalSupply
 
-  console.log(farm)
+  console.log("farm", farm)
 
   return (
     <div className="mainPage1">
       <StyledAppBody>
         <Wrapper>
-          <AppHeader title={farm?.lpSymbol ?? ''} backTo="/earn" noConfig />
+          <AppHeader title="Return Positions" backTo="/earn" noConfig />
         </Wrapper>
       </StyledAppBody>
       <Wrapper style={{ display: 'flex', flexDirection: 'column' }}>
-        <Wrapper>
+        {/* <Wrapper>
           <Flex>
             <img src="/images/refui.png" alt="" width="90%" style={{ margin: 'auto' }} />
           </Flex>
-        </Wrapper>
+        </Wrapper> */}
         <Wrapper className="actionPanel">
           <Wrapper className="pairInfo">
             <Flex style={{ width: '100%' }}>
-              <Flex className='pairImg'>
+              <Flex className="pairImg">
                 {farm?.isTokenOnly ? (
                   <TokenImage width={36} height={36} token={farm?.token} mr="2px" />
                 ) : (
@@ -111,22 +111,34 @@ const Farm = ({ pid }: { pid: number }) => {
               <Text>${lpPrice * lpStaked}</Text>
             </Flex>
           </Wrapper>
-          <Wrapper className='progress1'>
+          <Wrapper className="progress1">
             <Flex style={{ width: '100%' }}>
-              <ProgressBar className='progressBar1' now={percentage} label={`${percentage}%`} />
+              <ProgressBar className="progressBar1" now={percentage} label={`${percentage}%`} />
             </Flex>
           </Wrapper>
-          <Wrapper className='actions'>
-            <Flex className='stakeAction'>
+          <Wrapper className="actions">
+            <Flex className="stakeAction">
               <ActionContainer>
                 <StakedContainer {...farm}>{(props) => <StakedAction {...props} />}</StakedContainer>
               </ActionContainer>
             </Flex>
-            <Flex className='stakeAction'>
+            <Flex className="stakeAction">
               <ActionContainer>
-                <HarvestActionContainer {...farm}>{(props) => <HarvestAction {...props} />}</HarvestActionContainer>
+                <HarvestActionContainer {...farm}>{(props) => <HarvestAction {...props} userDataReady={Boolean(farm?.userData)} />}</HarvestActionContainer>
               </ActionContainer>
             </Flex>
+          </Wrapper>
+          <Wrapper className="liquiditySec">
+            <Button
+              as={NextLinkFromReactRouter}
+              to={farm?.isTokenOnly ? `https://app.uniswap.org/swap?outputCurrency=${farm.token.address}` : `https://app.uniswap.org/add/v2/${farm?.token.address}/${farm?.quoteToken.address}`}
+							target='_blank'
+              height="36px"
+              variant="secondary"
+              width="130px"
+            >
+              {farm?.isTokenOnly ? 'Get PYRO' : 'Add liqudity'}
+            </Button>
           </Wrapper>
         </Wrapper>
       </Wrapper>

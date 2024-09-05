@@ -8,6 +8,7 @@ import Flex from "components/Box/Flex";
 import CakePrice from "components/CakePrice/CakePrice";
 import TopMenuItems from "components/MenuItems/TopMenuItems";
 import { useMatchBreakpoints } from "contexts";
+import BottomNav from "components/BottomNav";
 import Logo from "./components/Logo";
 import { MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from "./config";
 import { MenuContext } from "./context";
@@ -176,7 +177,9 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
             </Inner>
             {/* <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" /> */}
           </BodyWrapper>
+          {/* {isMobile && <BottomNav items={mobileLinks} activeItem={activeItem} activeSubItem={activeSubItem} />} */}
         </Wrapper>
+        
       </AtomBox>
     </MenuContext.Provider>
   );
