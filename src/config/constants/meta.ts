@@ -26,6 +26,7 @@ const getPathList = (): PathList => {
       '/remove': { basePath: true, title: 'Remove Pool', image: `https://app.duckstail.com/images/web/og/liquidity.jpg` },
       '/pool': { title: 'Pool', image: `https://app.duckstail.com/images/web/og/liquidity.jpg` },
       '/find': { title: 'Import Pool' },
+      '/dashboard': { title: 'Dashboard' },
       '/earn': { title: 'Earn', image: `https://app.duckstail.com/images/web/og/farms.jpg` },
       '/earn/[id]': { title: 'Earn', image: `https://app.duckstail.com/images/web/og/farms.jpg` },
       '/info': {

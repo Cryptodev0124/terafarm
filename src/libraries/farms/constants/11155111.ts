@@ -24,6 +24,13 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: arbitrumTokens.usdt,
     token: arbitrumTokens.gtoken,
   },
+  {
+    pid: 4,
+    lpSymbol: 'WETH-USDC LP',
+    lpAddress: '0x63a2254C67A93aF6E552F2C2f5F7f5099734f981',
+    quoteToken: arbitrumTokens.weth,
+    token: arbitrumTokens.usdc,
+  },
 ].map((p) => ({ ...p, lpAddress: p.lpAddress as `0x${string}`, token: p.token.serialize, quoteToken: p.quoteToken.serialize }))
 
 export default farms

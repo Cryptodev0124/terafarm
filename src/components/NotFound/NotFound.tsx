@@ -26,14 +26,14 @@ const NotFound = ({
       href: "/",
       passHref: true,
     },
-    <Button scale="sm" variant="secondary">Back Swap</Button>
+    <Button scale="sm" variant="secondary">Back Farm</Button>
   );
 
   return (
     <>
       {children}
       <StyledNotFound>
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo1-2.png" alt="logo" />
         <Text fontSize="56px">{statusCode}</Text>
         <Text mb="16px">Oops, page not found.</Text>
         {linkElement}

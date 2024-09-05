@@ -1,13 +1,6 @@
 import { DropdownMenuItemType, MenuItemsType } from 'widgets/Menu'
 import { DropdownMenuItems } from 'components/DropdownMenu'
-import {
-  ChartIcon,
-  FarmIcon,
-  HomeIcon,
-  MoreIcon,
-  PrizeIcon,
-  SwapIcon
-} from '../../Svg'
+import { ChartIcon, FarmIcon, HomeIcon, MoreIcon, PrizeIcon, SwapIcon } from '../../Svg'
 
 export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
 export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: boolean; image?: string } & {
@@ -27,15 +20,13 @@ const addMenuItemSupported = (item, chainId) => {
   }
 }
 
-const config: (
-  chainId?: number,
-) => ConfigMenuItemsType[] = (chainId) =>
+const config: (chainId?: number) => ConfigMenuItemsType[] = (chainId) =>
   [
     {
       label: 'Dashboard',
       icon: HomeIcon,
       fillIcon: HomeIcon,
-      href: '',
+      href: '/dashboard',
       showItemsOnMobile: false,
       items: [
         // {
@@ -93,33 +84,33 @@ const config: (
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
     {
+      label: 'Governance',
+      icon: PrizeIcon,
+      fillIcon: PrizeIcon,
+      href: '/',
+      showItemsOnMobile: false,
+    },
+    {
+      label: 'Farms',
+      icon: FarmIcon,
+      fillIcon: FarmIcon,
+      href: '/earn',
+      showItemsOnMobile: false,
+    },
+    {
       label: 'Liquidity',
       icon: ChartIcon,
       fillIcon: ChartIcon,
-      href: '',
+      href: 'https://app.uniswap.org/add/v2',
       showItemsOnMobile: false,
     },
-    {
-      label: 'Stake',
-      icon: PrizeIcon,
-      fillIcon: PrizeIcon,
-      href: '',
-      showItemsOnMobile: false,
-    },
-    {
-      label: 'Farm',
-      icon: FarmIcon,
-      fillIcon: FarmIcon,
-      href: '',
-      showItemsOnMobile: false,
-    },
-    {
-      label: 'More',
-      icon: MoreIcon,
-      fillIcon: MoreIcon,
-      href: '',
-      showItemsOnMobile: false,
-    },
+    // {
+    //   label: 'More',
+    //   icon: MoreIcon,
+    //   fillIcon: MoreIcon,
+    //   href: '',
+    //   showItemsOnMobile: false,
+    // },
   ].map((item) => addMenuItemSupported(item, chainId))
 
 export default config

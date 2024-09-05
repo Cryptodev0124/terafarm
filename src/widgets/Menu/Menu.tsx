@@ -177,7 +177,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
             </Inner>
             {/* <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" /> */}
           </BodyWrapper>
-          {/* {isMobile && <BottomNav items={mobileLinks} activeItem={activeItem} activeSubItem={activeSubItem} />} */}
+          {isMobile && <BottomNav items={mobileLinks} activeItem={activeItem} activeSubItem={activeSubItem} />}
         </Wrapper>
         
       </AtomBox>
